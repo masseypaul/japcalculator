@@ -15,6 +15,8 @@ import { FoodTile } from "../../components";
 
 import { sendData } from "../../utils/send-data";
 
+import { CrosswordsGrid } from "../Crosswords";
+
 type ClassNames =
   | "container"
   | "circleContainer"
@@ -84,16 +86,17 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
                 </div>
               ))}
             </div>
-          </div>
-          <div className={classes.buttonContainer}>
-            <Button variant="contained" onClick={sendData(result)}>
-              {result} Kcal
-            </Button>
-          </div>
-          <div className={classes.buttonContainer}>
-            <Button variant="contained" onClick={resetChange}>
-              Reset
-            </Button>
+            <div className={classes.buttonContainer}>
+              <Button variant="contained" onClick={sendData(result)}>
+                {result} Kcal
+              </Button>
+            </div>
+            <div className={classes.buttonContainer}>
+              <Button variant="contained" onClick={resetChange}>
+                Reset
+              </Button>
+            </div>{" "}
+            <CrosswordsGrid />
           </div>
         </div>
         <div className={classes.lateralBar}>
@@ -176,6 +179,7 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     display: "flex",
     flexDirection: "column",
     maxWidth: "calc(100% - 64px)",
+    overflowY: "auto",
   },
   scrollContainer: {
     overflowY: "auto",
