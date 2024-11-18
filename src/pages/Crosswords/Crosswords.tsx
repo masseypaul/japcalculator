@@ -8,42 +8,6 @@ import {
 } from "../../utils/utils-crosswords";
 import { grid as gridContent } from "../../utils/content_grid";
 
-interface CrosswordsCellProps {
-  value: string;
-  onChange: (value: string) => void;
-  selectedCell?: boolean;
-  row: number;
-  col: number;
-  handleCellClick: (row: number, col: number) => void;
-}
-
-export const CrosswordsCell: React.FC<CrosswordsCellProps> = ({
-  value,
-  onChange,
-  selectedCell,
-}) => {
-  return (
-    <input
-      type="text"
-      readOnly
-      value={value || ""}
-      onChange={(e) => onChange(e.target.value)}
-      className="Crosswords-cell"
-      style={{
-        color: "black",
-        textAlign: "center",
-        width: "25px",
-        height: "25px",
-        border: selectedCell ? "2px solid red" : "1px solid black",
-        backgroundColor: value.length >= 1 ? "white" : "black",
-      }}
-      maxLength={2}
-    />
-  );
-};
-
-// Only use what is below for the Crosswords
-// Above is an old version kept here for no particular reason
 export const CrosswordsGrid = () => {
   // variable used for the crosswords
   // cell selected by the user (with red border)
@@ -246,7 +210,7 @@ export const CrosswordsGrid = () => {
           <>Bravo, la grille est complète</>
         ) : (
           <>
-            Definition :{" "}
+            Définition :{" "}
             {selectedDefinition.length > 0
               ? selectedDefinition
               : "no definition"}
